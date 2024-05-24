@@ -31,4 +31,28 @@ let myobj={
 const myfunction=function(){
     console.log("Hello World")
 }
-console.log(typeof myfunction)
+// console.log(typeof myfunction)
+
+
+//+++++++++++++++++++++++++++++++++++++++++\\
+
+//stack(primitive)(copy),heap(non-primitive)(reference)
+
+let myytname="tushar"
+
+let anothername=myytname
+anothername="sharma"
+
+// console.log(anothername)  //primitive
+// console.log(myytname)     //primitive
+
+let userone={
+    name:"Tushar",
+    upi:"tushar@upi"
+}
+
+let usertwo=userone;
+usertwo.upi="sharma@upi"
+
+// console.log(userone.upi)    //changes int heap that's why both are changed   
+// console.log(usertwo.upi)
