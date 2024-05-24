@@ -32,3 +32,4 @@ jsuser.greeting2=function(){
 }
 jsuser.greeting();
 jsuser.greeting2();
+console.log(jsuser)
