@@ -51,4 +51,4 @@ function returnsecondval (anyarr){
     return anyarr[1]
 }
 
-console.log(returnsecondval(mynewarr))
+// console.log(returnsecondval(mynewarr))
