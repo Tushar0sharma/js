@@ -27,5 +27,28 @@ function loginuser(username="sam"){
     else
     return `${username} just logged in`
 }
-let ans=loginuser()
-console.log(ans)
+// let ans=loginuser()
+// console.log(ans)
+
+function calculatecartprice(val1,...num1){
+    return num1;
+}
+// console.log(calculatecartprice(122,34,221))
+
+const user={ 
+    user:"tushar",
+    price:"3883"
+}
+
+function handleuser(anyobj){
+    console.log(`username is ${anyobj.user} and price is ${anyobj.price}`)
+}
+// handleuser(user)
+
+mynewarr=[12,34,23,4,2,344]
+
+function returnsecondval (anyarr){
+    return anyarr[1]
+}
+
+console.log(returnsecondval(mynewarr))
