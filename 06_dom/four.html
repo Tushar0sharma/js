@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color:#fff;">
+    <ul class="lang">
+        <li>javasript</li>
+    </ul>
+
+</body>
+<script>
+    function add(langnane){
+        const li=document.createElement('li')
+        li.innerHTML=`${langnane}`
+        document.querySelector('.lang').appendChild(li)
+    }
+    add('java')
+    add('python')
+
+    //optimied way to append
+    function addopti(langname){
+        const li= document.createElement('li')
+        li.appendChild(document.createTextNode(langname))
+        document.querySelector('.lang').appendChild(li)
+    }
+
+    addopti('golang')
+
+    //Edit
+
+    const seclang =  document.querySelector("li:nth-child(2)")
+    // seclang.innerHTML='mojo'
+    const li=document.createElement('li')
+    li.textContent='mojo'
+    seclang.replaceWith(li)
+</script>
+</html>
