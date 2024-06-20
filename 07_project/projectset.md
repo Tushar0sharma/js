@@ -154,6 +154,31 @@ function endgame(){
 }
 
 ```
+
+## 05_Project
+
+```javascript
+const insert=document.querySelector('#insert')
+window.addEventListener('keydown',(e)=>{
+  insert.innerHTML=`<div class="color">
+  <table>
+  <tr>
+  <th>key</th>
+  <th>code</th>
+  <th>keyCode</th>
+  </tr>
+  <tr>
+  <td>${e.key===' '?'Space':e.key}</td>
+  <td>${ e.code }</td>
+  <td>${e.keyCode}</td>
+  </tr>
+
+  </table>
+  </div>`
+})
+
+```
+
 ## 06_Project
 
 ```javascript
