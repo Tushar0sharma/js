@@ -1,6 +1,7 @@
 # Projects Related to DOM
 
-## 01_project
+## 01_project - Color changer
+
 ```javascript
 const body=document.querySelector('body');
 
@@ -23,7 +24,7 @@ buttons.forEach(function (button){
   });
 });
 ```
-## 02_Project
+## 02_Project - BMI Generator
 
 ```javascript
     const form=document.querySelector('form')
@@ -49,7 +50,7 @@ form.addEventListener('click',(e)=>{
   };
 });
 ```
-## 03_Project
+## 03_Project - Digital Clock
 
 ```javascript
 const clock=document.querySelector('#clock');
@@ -59,7 +60,7 @@ setInterval(function(){
   clock.innerHTML=date.toLocaleTimeString();
 },1000)
 ```
-## 04_Project
+## 04_Project - Guess the Number
 ```javascript
 let random= parseInt(Math.random()*100)+1;
 
@@ -155,7 +156,7 @@ function endgame(){
 
 ```
 
-## 05_Project
+## 05_Project - KeyBoard Check
 
 ```javascript
 const insert=document.querySelector('#insert')
@@ -179,7 +180,7 @@ window.addEventListener('keydown',(e)=>{
 
 ```
 
-## 06_Project
+## 06_Project - Unilimited colors
 
 ```javascript
 const st=document.querySelector('#start')
@@ -208,4 +209,221 @@ end.addEventListener('click',function(e){
   const body=document.querySelector('body')
   body.style.backgroundColor='black';
 })
+```
+
+## 08_Project - Your Typer Library
+```javascript
+const typedTextSpan = document.querySelector('.typed-text');
+const cursor = document.querySelector('.cursor');
+
+const words = ['Love', 'Jhakaas', 'mast', 'dhinchak', 'Weird'];
+
+let wordIndex=0;
+let letterIndex=0;
+let interval;
+
+function type() {
+  let currentWord=words[wordIndex];
+  let currentLetter = currentWord[letterIndex]
+
+  typedTextSpan.innerHTML+=currentLetter
+  letterIndex++;
+
+  if(letterIndex>=currentWord.length){
+    clearInterval(interval)
+
+    setTimeout(()=>{
+      interval=setInterval(erase,300)
+    },200)
+  }
+
+}
+
+
+
+function erase() {
+  let currentWord=words[wordIndex];
+
+
+  let text = currentWord.substring(0,letterIndex-1)
+  typedTextSpan.innerHTML=text
+  letterIndex--;
+
+  if(text===''){
+    clearInterval(interval)
+  if(wordIndex==(words.length-1)){
+    wordIndex=0
+    setTimeout(()=>{
+      interval=setInterval(type,100)
+    },200)
+  }
+  else{
+    wordIndex++;
+    letterIndex=0;
+    setTimeout(()=>{
+      interval=setInterval(type,100)
+    },200)
+  }
+  }
+}
+interval=setInterval(type,300)
+setInterval(function(){
+ 
+if(cursor.classList.contains("show")){
+  cursor.classList.remove("show")
+}
+else{
+  cursor.classList.add("show")
+}
+},500)
+```
+## 09_Project - Mouse Circle
+
+```javascript
+const cursor = document.querySelector('.cursor');
+// an array of 10 colors in hex value
+const colors = [
+  '#FF6633',
+  '#FFB399',
+  '#FF33FF',
+  '#FFFF99',
+  '#00B3E6',
+  '#E6B333',
+  '#3366E6',
+  '#999966',
+  '#99FF99',
+  '#B34D4D',
+];
+function update(e){
+  cursor.style.left = e.clientX+"px"
+  cursor.style.top = e.clientY+"px"
+
+  let index = Math.floor(Math.random()*colors.length)
+  console.log(index)
+  cursor.style.backgroundColor=colors[index]
+}
+window.addEventListener("mousemove",update)
+// add circle to cursor and change it's color as cursor moves on the screen. Pick color from these array
+```
+
+## 10_Project - Emoji
+
+``javascript
+const btn = document.querySelector('#emoji');
+const emojis = [
+  '😆',
+  '😅',
+  '🤣',
+  '😂',
+  '😀',
+  '🤑',
+  '🤨',
+  '🙂',
+  '😊',
+  '😗',
+  '😛',
+  '😏',
+  '🤥',
+  '😴',
+  '🥺',
+  '😧',
+  '😇',
+  '😳',
+  '🙃',
+  '🥴',
+  '🧐',
+  '🤨',
+  '😒',
+  '🤔',
+  '🤭',
+  '🥰',
+  '🤐',
+  '👀',
+  '🤔',
+  '🤪',
+  '🥲',
+  '😃',
+  '😁',
+  '😬',
+];
+
+btn.addEventListener('mouseover',(e)=>{
+  let index=Math.floor(Math.random()*emojis.length)
+  btn.innerHTML=emojis[index]
+})
+
+```
+
+## 11_Project - Text Editor
+
+```javascript
+const input=document.getElementById('input-field')
+const output=document.getElementById('output-field')
+const btns=document.querySelectorAll('.btn')
+
+btns.forEach((btn)=>{
+  btn.addEventListener('click',(e)=>{
+    
+    if(btn.classList.contains("uppercase")){
+      output.innerHTML=input.value.toUpperCase();
+    }
+    else if(btn.classList.contains("lowercase")){
+      output.innerHTML=input.value.toLowerCase();
+    }
+    else if(btn.classList.contains("capitalize")){
+      output.innerHTML=tocapt(input.value);
+    }
+    else if(btn.classList.contains("bold")){
+      output.style.fontWeight='bold';
+      output.innerHTML=input.value;
+    }
+    else if(btn.classList.contains("italic")){
+      output.style.fontStyle='italic';
+      output.innerHTML=input.value;
+    }
+    
+    else if(btn.classList.contains("underline")){
+      output.style.textDecoration='underline';
+      output.innerHTML=input.value;
+    }
+    input.value='';
+  })
+})
+function tocapt(sentence){
+    const splitarr=sentence.split(' ');
+    const convet=splitarr.map((word)=>{
+      return word.charAt(0).toUpperCase()+word.slice(1).toLowerCase();
+    })
+    return sen=convet.join(" ");
+}
+```
+## 15_Project - TO DO List
+
+```javascript
+const title = document.getElementById('title');
+const author = document.getElementById('author');
+const year = document.getElementById('year');
+const bookList = document.getElementById('book-list');
+const btn = document.querySelector('.btn');
+
+btn.addEventListener('click', function (e) {
+  e.preventDefault()
+  //work on CRUD operation of DOM
+  if(title.value===''||year.value===''||author.value===''){
+    alert("please fill allField");
+  }
+  else{
+    const section=document.createElement("section");
+    bookList.appendChild(section);
+    section.innerHTML=`
+    <div>${title.value}</div>
+    <div>${author.value}</div>
+    <div>${year.value}</div>
+    `
+  }
+  title.value="";
+    author.value="";
+    year.value="";
+});
+
 ```
