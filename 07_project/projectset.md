@@ -25,7 +25,7 @@ buttons.forEach(function (button){
 ```
 ## 02_Project
 
-```javascipt
+```javascript
     const form=document.querySelector('form')
 
 form.addEventListener('click',(e)=>{
