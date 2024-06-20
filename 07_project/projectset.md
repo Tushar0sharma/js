@@ -154,3 +154,33 @@ function endgame(){
 }
 
 ```
+## 06_Project
+
+```javascript
+const st=document.querySelector('#start')
+const end=document.querySelector('#stop')
+
+let intervalid=null
+
+st.addEventListener('click',function(e){
+  intervalid=setInterval(function(){
+    const body=document.querySelector('body')
+    var randomColor =getcolor();
+    console.log(randomColor)
+    body.style.backgroundColor=randomColor;
+  },1000)
+})
+function getcolor(){
+  var letter='0123456789ABCDEF'
+  let color='#'
+  for(var i=0;i<6;i++){
+    color+=letter[Math.floor(Math.random()*16)]
+  }
+  return color;
+}
+end.addEventListener('click',function(e){
+  clearInterval(intervalid)
+  const body=document.querySelector('body')
+  body.style.backgroundColor='black';
+})
+```
