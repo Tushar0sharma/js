@@ -308,7 +308,7 @@ window.addEventListener("mousemove",update)
 
 ## 10_Project - Emoji
 
-``javascript
+```javascript
 const btn = document.querySelector('#emoji');
 const emojis = [
   '😆',
